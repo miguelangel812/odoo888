@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_odoo888_jugador_usuario,odoo888.jugador.usuario,model_odoo888_jugador,odoo888.group_odoo888_usuario,1,0,0,0
+access_odoo888_jugador_administrador,odoo888.jugador.administrador,model_odoo888_jugador,odoo888.group_odoo888_administrador,1,1,1,1_

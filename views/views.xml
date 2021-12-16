@@ -1,0 +1,135 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="odoo888.list">
+      <field name="name">odoo888 list</field>
+      <field name="model">odoo888.odoo888</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="odoo888.action_window">
+      <field name="name">odoo888 window</field>
+      <field name="res_model">odoo888.odoo888</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="odoo888.action_server">
+      <field name="name">odoo888 server</field>
+      <field name="model_id" ref="model_odoo888_odoo888"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="odoo888" id="odoo888.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="odoo888.menu_1" parent="odoo888.menu_root"/>
+    <menuitem name="Menu 2" id="odoo888.menu_2" parent="odoo888.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="odoo888.menu_1_list" parent="odoo888.menu_1"
+              action="odoo888.action_window"/>
+    <menuitem name="Server to list" id="odoo888" parent="odoo888.menu_2"
+              action="odoo888.action_server"/>
+-->
+
+<!-- Vistas de persona-->
+
+    <record model="ir.ui.view" id="odoo888.jugador_list_view">
+      <field name="name">odoo888.jugador.view.tree</field>
+      <field name="model">odoo888.jugador</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="nombre"/>
+          <field name="telefono"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="odoo888.jugador_search_view">
+      <field name="name">odoo888.jugador.view.search</field>
+      <field name="model">odoo888.jugador</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="nombre"/>
+          <field name="telefono"/>
+          <group>
+            <filter name="group_by_nombre" string="nombre" context="{'gropup_by':'nombre'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+    
+    <!-- form -->
+    
+    <record model="ir.ui.view" id="odoo888.jugador_form_view">
+      <field name="name">odoo888.jugador.view.form</field>
+      <field name="model">odoo888.jugador</field>
+      <field name="arch" type="xml">
+        <form string="Información persona">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                DNI <field name="name" placeholder="dni"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="nombre" placeholder="nombre"/>
+                <field name="telefono"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+
+    </record>
+
+    <!-- Definición de menús-->
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="odoo888.jugador_action_window">
+      <field name="name">jugador</field>
+      <field name="res_model">odoo888.jugador</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="odoo888" id="odoo888.menu_root"/>
+    <menuitem name="jugador" id="odoo888.menu_persona" parent="odoo888.menu_root"/>
+    <menuitem name="List" id="odoo888.menu_persona_list" parent="odoo888.menu_persona"
+              action="odoo888.jugador_action_window"/>
+
+
+  </data>
+</odoo>

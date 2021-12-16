@@ -1,0 +1,30 @@
+<odoo>
+    <record id="odoo888.jugador_report" model="ir.actions.report">
+        <field name="name"> Informe de jugadors</field>
+        <field name="model">odoo888.jugador</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">odoo888.jugador_report_view</field>
+        <field name="report_file">odoo888.jugador_report</field>
+        <field name="binding_model_id" ref="model_odoo888_jugador"/>
+        <field name="binding_type">report</field>
+
+    </record>
+
+    <template id="jugador_report_view">
+        <t t-call="web.html_container">
+            <!-- muestra datos de la empresa (salta página) -->
+            <t t-call="web.external_layout">
+                <h1>Jugador</h1><br />
+                <t t-foreach="docs" t-as="jugador">
+                    <ul>
+                        <li>    dni <span t-field="jugador.name" /></li>
+                        <li>    nombre <span t-field="jugador.nombre" /></li>
+                        <li>    teléfono <span t-field="jugador.telefono" /></li>
+
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
